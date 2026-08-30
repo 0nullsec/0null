@@ -6,22 +6,25 @@
 
   <meta
     name="description"
-    content="0null — Web Security & Penetration Testing"
+    content="0null — Web Security, Penetration Testing, Active Directory y Cybersecurity."
   >
 
-  <title>0null | Web Security & Penetration Testing</title>
+  <meta name="theme-color" content="#111111">
+
+  <title>0null | Cybersecurity & Penetration Testing</title>
 
   <style>
     :root {
       --black: #111111;
-      --dark: #181818;
-      --text: #222222;
-      --muted: #666666;
-      --light: #f5f5f3;
+      --black-2: #181818;
+      --text: #202020;
+      --muted: #686868;
+      --light: #f6f6f4;
       --white: #ffffff;
-      --border: #e5e5e5;
+      --border: #e4e4e4;
       --accent: #b42318;
-      --max: 1150px;
+      --max: 1180px;
+      --radius: 6px;
     }
 
     * {
@@ -54,8 +57,14 @@
       text-decoration: none;
     }
 
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
     .container {
-      width: min(100% - 40px, var(--max));
+      width: min(calc(100% - 40px), var(--max));
       margin: 0 auto;
     }
 
@@ -66,12 +75,12 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
 
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, .96);
       border-bottom: 1px solid var(--border);
 
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
 
     .nav {
@@ -83,9 +92,9 @@
     }
 
     .logo {
-      font-size: 23px;
+      font-size: 24px;
       font-weight: 800;
-      letter-spacing: -1px;
+      letter-spacing: -1.5px;
     }
 
     .logo span {
@@ -95,33 +104,31 @@
     nav {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 27px;
     }
 
     nav a {
       color: #555;
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 13px;
+      font-weight: 600;
+      transition: color .2s ease;
     }
 
     nav a:hover {
       color: var(--accent);
     }
 
-    .contact-button {
+    .nav-contact {
       padding: 10px 17px;
 
-      color: white;
+      color: var(--white) !important;
       background: var(--black);
 
-      border-radius: 5px;
-
-      font-weight: 600;
+      border-radius: var(--radius);
     }
 
-    .contact-button:hover {
+    .nav-contact:hover {
       background: var(--accent);
-      color: white;
     }
 
     /* =========================
@@ -129,16 +136,20 @@
     ========================== */
 
     .hero {
-      padding: 125px 0 120px;
+      padding: 130px 0 125px;
       background: var(--light);
     }
 
     .hero-content {
-      max-width: 850px;
+      max-width: 900px;
     }
 
-    .label {
-      margin-bottom: 20px;
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 22px;
 
       color: var(--accent);
 
@@ -148,51 +159,67 @@
       text-transform: uppercase;
     }
 
-    h1 {
-      color: var(--black);
+    .eyebrow::before {
+      content: "";
 
-      font-size: clamp(45px, 7vw, 76px);
-      line-height: 1.04;
-      letter-spacing: -0.05em;
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--accent);
     }
 
-    h1 span {
+    .hero h1 {
+      max-width: 900px;
+
+      color: var(--black);
+
+      font-size: clamp(45px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -.055em;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
       color: var(--accent);
     }
 
-    .hero-text {
-      max-width: 700px;
+    .hero-description {
+      max-width: 720px;
 
-      margin-top: 25px;
+      margin-top: 27px;
 
       color: var(--muted);
 
       font-size: 19px;
-      line-height: 1.75;
+      line-height: 1.8;
     }
 
-    .buttons {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
 
-      margin-top: 32px;
+      margin-top: 35px;
     }
 
     .button {
+      min-height: 50px;
+      padding: 0 22px;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
 
-      min-height: 49px;
-      padding: 0 21px;
-
-      border-radius: 5px;
+      border-radius: var(--radius);
 
       font-size: 14px;
       font-weight: 700;
 
-      transition: .2s ease;
+      transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease;
     }
 
     .button-primary {
@@ -206,8 +233,9 @@
     }
 
     .button-secondary {
-      border: 1px solid #d3d3d3;
       background: var(--white);
+      border: 1px solid #d5d5d5;
+      color: var(--black);
     }
 
     .button-secondary:hover {
@@ -216,66 +244,63 @@
     }
 
     /* =========================
-       SECTIONS
+       GENERAL
     ========================== */
 
     section {
-      padding: 100px 0;
+      padding: 105px 0;
+    }
+
+    .section-header {
+      max-width: 760px;
+      margin-bottom: 52px;
     }
 
     .section-label {
-      margin-bottom: 12px;
+      margin-bottom: 13px;
 
       color: var(--accent);
 
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: .1em;
+      letter-spacing: .11em;
       text-transform: uppercase;
     }
 
     .section-title {
-      max-width: 700px;
-
       color: var(--black);
 
-      font-size: clamp(32px, 5vw, 48px);
-      line-height: 1.1;
-      letter-spacing: -.04em;
+      font-size: clamp(33px, 5vw, 50px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
     }
 
     .section-description {
-      max-width: 680px;
-
       margin-top: 18px;
 
       color: var(--muted);
 
       font-size: 17px;
-    }
-
-    .section-header {
-      margin-bottom: 50px;
+      line-height: 1.75;
     }
 
     /* =========================
        ABOUT
     ========================== */
 
-    .about {
+    .about-grid {
       display: grid;
-      grid-template-columns: .7fr 1.3fr;
-
-      gap: 80px;
+      grid-template-columns: .75fr 1.25fr;
+      gap: 90px;
     }
 
-    .about-name {
-      font-size: 42px;
+    .about-brand {
+      font-size: 44px;
       font-weight: 800;
-      letter-spacing: -.04em;
+      letter-spacing: -.05em;
     }
 
-    .about-name span {
+    .about-brand span {
       color: var(--accent);
     }
 
@@ -283,34 +308,55 @@
       color: var(--muted);
 
       font-size: 17px;
-      line-height: 1.85;
+      line-height: 1.9;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 18px 20px;
+
+      background: var(--light);
+      border-left: 3px solid var(--accent);
+
+      color: #555;
+      font-size: 14px;
     }
 
     /* =========================
        SERVICES
     ========================== */
 
-    .services {
+    .gray-section {
       background: var(--light);
     }
 
-    .service-grid {
+    .cards-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-
       gap: 20px;
     }
 
-    .service {
+    .card {
       padding: 32px;
 
       background: var(--white);
 
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: var(--radius);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
     }
 
-    .service-number {
+    .card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, .06);
+    }
+
+    .card-number {
       margin-bottom: 35px;
 
       color: var(--accent);
@@ -319,7 +365,7 @@
       font-weight: 800;
     }
 
-    .service h3 {
+    .card h3 {
       margin-bottom: 12px;
 
       color: var(--black);
@@ -327,9 +373,53 @@
       font-size: 20px;
     }
 
-    .service p {
+    .card p {
       color: var(--muted);
       font-size: 15px;
+    }
+
+    /* =========================
+       SECURITY AREAS
+    ========================== */
+
+    .dark-section {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .dark-section .section-title {
+      color: var(--white);
+    }
+
+    .dark-section .section-description {
+      color: #999;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill {
+      padding: 21px;
+
+      background: var(--black-2);
+
+      border: 1px solid #2d2d2d;
+
+      color: #e5e5e5;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .skill-number {
+      float: right;
+
+      color: var(--accent);
+
+      font-size: 11px;
     }
 
     /* =========================
@@ -339,13 +429,11 @@
     .method-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-
       gap: 25px;
     }
 
     .method {
       padding-top: 20px;
-
       border-top: 2px solid var(--black);
     }
 
@@ -354,13 +442,12 @@
 
       color: var(--accent);
 
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
     }
 
     .method h3 {
       margin-bottom: 10px;
-
       font-size: 18px;
     }
 
@@ -370,42 +457,41 @@
     }
 
     /* =========================
-       SKILLS
+       LABORATORIES
     ========================== */
 
-    .skills {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    .skills .section-title {
-      color: var(--white);
-    }
-
-    .skills .section-description {
-      color: #999;
-    }
-
-    .skill-list {
+    .lab-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 15px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
 
-    .skill {
-      padding: 22px;
+    .lab {
+      padding: 30px;
 
-      border: 1px solid #303030;
-
-      color: #ddd;
-
-      background: #151515;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
     }
 
-    .skill span {
-      float: right;
+    .lab-type {
+      margin-bottom: 25px;
+
       color: var(--accent);
+
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .lab h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .lab p {
+      color: var(--muted);
+      font-size: 14px;
     }
 
     /* =========================
@@ -415,14 +501,13 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-
       gap: 20px;
     }
 
     .project {
-      padding: 32px;
+      min-height: 290px;
 
-      min-height: 260px;
+      padding: 32px;
 
       display: flex;
       flex-direction: column;
@@ -431,7 +516,7 @@
       background: #f1f1ef;
 
       border: 1px solid var(--border);
-      border-radius: 6px;
+      border-radius: var(--radius);
     }
 
     .project-type {
@@ -439,19 +524,63 @@
 
       color: var(--accent);
 
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
 
     .project h3 {
       margin-bottom: 10px;
-
-      font-size: 24px;
+      font-size: 25px;
     }
 
     .project p {
+      max-width: 550px;
       color: var(--muted);
+    }
+
+    /* =========================
+       CERTIFICATIONS
+    ========================== */
+
+    .certifications {
+      background: var(--light);
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .cert {
+      padding: 28px;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .cert-status {
+      margin-bottom: 25px;
+
+      color: var(--accent);
+
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .cert h3 {
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .cert p {
+      color: var(--muted);
+      font-size: 14px;
     }
 
     /* =========================
@@ -463,20 +592,19 @@
       color: var(--white);
     }
 
-    .cta-content {
+    .cta-grid {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       gap: 40px;
     }
 
     .cta h2 {
-      max-width: 700px;
+      max-width: 750px;
 
-      font-size: clamp(32px, 5vw, 52px);
-      line-height: 1.1;
-      letter-spacing: -.04em;
+      font-size: clamp(34px, 5vw, 53px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
     }
 
     .cta p {
@@ -503,18 +631,17 @@
        CONTACT
     ========================== */
 
-    .contact {
+    .contact-grid {
       display: grid;
       grid-template-columns: .8fr 1.2fr;
-
-      gap: 80px;
+      gap: 90px;
     }
 
     .contact-text {
       color: var(--muted);
 
       font-size: 17px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     .email {
@@ -536,14 +663,14 @@
     textarea {
       width: 100%;
 
-      padding: 16px;
+      padding: 16px 17px;
 
-      border: 1px solid #ddd;
-      border-radius: 5px;
+      border: 1px solid #d9d9d9;
+      border-radius: var(--radius);
 
-      background: white;
+      background: var(--white);
 
-      font: inherit;
+      color: var(--black);
 
       outline: none;
     }
@@ -554,19 +681,18 @@
     }
 
     textarea {
-      min-height: 160px;
+      min-height: 170px;
       resize: vertical;
     }
 
-    button {
+    .form-button {
       border: 0;
       cursor: pointer;
-      font-family: inherit;
     }
 
-    #message {
+    #form-message {
       min-height: 25px;
-      margin-top: 15px;
+      margin-top: 12px;
 
       color: #16834d;
 
@@ -587,7 +713,7 @@
       font-size: 13px;
     }
 
-    .footer-content {
+    .footer-grid {
       display: flex;
       justify-content: space-between;
       gap: 20px;
@@ -597,32 +723,33 @@
        RESPONSIVE
     ========================== */
 
-    @media (max-width: 900px) {
+    @media (max-width: 950px) {
 
       nav {
         display: none;
       }
 
-      .about,
-      .contact {
+      .about-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
-
-        gap: 40px;
+        gap: 45px;
       }
 
-      .service-grid {
+      .cards-3,
+      .lab-grid,
+      .cert-grid {
         grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .method-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .skill-list {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-content {
+      .cta-grid {
         flex-direction: column;
         align-items: flex-start;
       }
@@ -631,7 +758,7 @@
     @media (max-width: 600px) {
 
       .container {
-        width: min(100% - 30px, var(--max));
+        width: min(calc(100% - 30px), var(--max));
       }
 
       section {
@@ -642,16 +769,21 @@
         padding: 85px 0;
       }
 
-      h1 {
+      .hero h1 {
         font-size: 48px;
       }
 
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .skills-grid,
       .method-grid,
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
-      .footer-content {
+      .footer-grid {
         flex-direction: column;
       }
     }
@@ -660,7 +792,9 @@
 
 <body>
 
-  <!-- HEADER -->
+  <!-- =========================
+       HEADER
+  ========================== -->
 
   <header>
 
@@ -672,23 +806,17 @@
 
       <nav>
 
-        <a href="#sobre-mi">
-          Sobre mí
-        </a>
+        <a href="#sobre-mi">Sobre mí</a>
 
-        <a href="#servicios">
-          Servicios
-        </a>
+        <a href="#servicios">Servicios</a>
 
-        <a href="#metodologia">
-          Metodología
-        </a>
+        <a href="#conocimientos">Conocimientos</a>
 
-        <a href="#portfolio">
-          Portfolio
-        </a>
+        <a href="#metodologia">Metodología</a>
 
-        <a href="#contacto" class="contact-button">
+        <a href="#portfolio">Portfolio</a>
+
+        <a href="#contacto" class="nav-contact">
           Contacto
         </a>
 
@@ -699,9 +827,11 @@
   </header>
 
 
-  <!-- HERO -->
-
   <main>
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <section class="hero">
 
@@ -709,30 +839,30 @@
 
         <div class="hero-content">
 
-          <div class="label">
-            Web Security & Penetration Testing
+          <div class="eyebrow">
+            Cybersecurity & Penetration Testing
           </div>
 
           <h1>
-            Seguridad web
+            Seguridad digital
             con un enfoque
             <span>profesional.</span>
           </h1>
 
-          <p class="hero-text">
-            Soy 0null, especialista en seguridad web y pentesting.
-            Analizo aplicaciones web y APIs para identificar
-            vulnerabilidades y proporcionar recomendaciones
-            claras para mejorar su seguridad.
+          <p class="hero-description">
+            Soy 0null. Me especializo en seguridad de aplicaciones
+            web, APIs, Active Directory y evaluación de sistemas.
+            Analizo riesgos dentro de entornos autorizados y
+            documento los resultados de forma clara.
           </p>
 
-          <div class="buttons">
+          <div class="hero-buttons">
 
             <a
               href="#contacto"
               class="button button-primary"
             >
-              Solicitar evaluación
+              Contactar
             </a>
 
             <a
@@ -751,13 +881,15 @@
     </section>
 
 
-    <!-- SOBRE MI -->
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
     <section id="sobre-mi">
 
       <div class="container">
 
-        <div class="about">
+        <div class="about-grid">
 
           <div>
 
@@ -765,7 +897,7 @@
               Sobre mí
             </div>
 
-            <div class="about-name">
+            <div class="about-brand">
               0<span>null</span>
             </div>
 
@@ -774,17 +906,19 @@
           <div>
 
             <p class="about-text">
-              Me dedico al análisis de seguridad de aplicaciones
-              web y servicios expuestos en Internet.
+              Mi enfoque está centrado en comprender cómo funcionan
+              los sistemas, identificar posibles riesgos de seguridad
+              y comunicar los resultados de manera útil.
               <br><br>
-              Mi trabajo consiste en identificar posibles
-              vulnerabilidades, evaluar su impacto y documentar
-              los hallazgos de forma clara para que puedan
-              ser corregidos.
-              <br><br>
-              Todas las pruebas se realizan únicamente con
-              autorización del propietario del sistema.
+              Trabajo principalmente con aplicaciones web, APIs,
+              sistemas Windows y entornos Active Directory, además
+              de otras áreas relacionadas con la seguridad informática.
             </p>
+
+            <div class="notice">
+              Las pruebas de seguridad deben realizarse únicamente
+              con autorización explícita del propietario del sistema.
+            </div>
 
           </div>
 
@@ -795,11 +929,13 @@
     </section>
 
 
-    <!-- SERVICIOS -->
+    <!-- =========================
+         SERVICES
+    ========================== -->
 
     <section
       id="servicios"
-      class="services"
+      class="gray-section"
     >
 
       <div class="container">
@@ -812,22 +948,21 @@
 
           <h2 class="section-title">
             Evaluación de seguridad
-            para aplicaciones modernas.
+            orientada a resultados.
           </h2>
 
           <p class="section-description">
-            Servicios de análisis orientados a identificar,
-            priorizar y corregir riesgos de seguridad.
+            Análisis técnico para identificar vulnerabilidades,
+            comprender su impacto y mejorar la seguridad.
           </p>
 
         </div>
 
+        <div class="cards-3">
 
-        <div class="service-grid">
+          <article class="card">
 
-          <article class="service">
-
-            <div class="service-number">
+            <div class="card-number">
               01
             </div>
 
@@ -837,15 +972,14 @@
 
             <p>
               Evaluación de aplicaciones web para identificar
-              vulnerabilidades y problemas de configuración.
+              vulnerabilidades y problemas de seguridad.
             </p>
 
           </article>
 
+          <article class="card">
 
-          <article class="service">
-
-            <div class="service-number">
+            <div class="card-number">
               02
             </div>
 
@@ -854,16 +988,15 @@
             </h3>
 
             <p>
-              Revisión de APIs para detectar problemas de
-              autenticación, autorización y exposición de datos.
+              Revisión de APIs y controles de autenticación,
+              autorización y exposición de información.
             </p>
 
           </article>
 
+          <article class="card">
 
-          <article class="service">
-
-            <div class="service-number">
+            <div class="card-number">
               03
             </div>
 
@@ -872,8 +1005,8 @@
             </h3>
 
             <p>
-              Evaluación general de la superficie de ataque
-              y recomendaciones para reducir riesgos.
+              Evaluación de la superficie de ataque y
+              recomendaciones para reducir riesgos.
             </p>
 
           </article>
@@ -885,7 +1018,106 @@
     </section>
 
 
-    <!-- METODOLOGIA -->
+    <!-- =========================
+         KNOWLEDGE
+    ========================== -->
+
+    <section
+      id="conocimientos"
+      class="dark-section"
+    >
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Conocimientos
+          </div>
+
+          <h2 class="section-title">
+            Áreas técnicas.
+          </h2>
+
+          <p class="section-description">
+            Tecnologías y áreas de seguridad que puedes
+            personalizar según tu experiencia real.
+          </p>
+
+        </div>
+
+        <div class="skills-grid">
+
+          <div class="skill">
+            Web Application Security
+            <span class="skill-number">01</span>
+          </div>
+
+          <div class="skill">
+            API Security
+            <span class="skill-number">02</span>
+          </div>
+
+          <div class="skill">
+            Active Directory Security
+            <span class="skill-number">03</span>
+          </div>
+
+          <div class="skill">
+            Windows Security
+            <span class="skill-number">04</span>
+          </div>
+
+          <div class="skill">
+            Linux Security
+            <span class="skill-number">05</span>
+          </div>
+
+          <div class="skill">
+            Network Security
+            <span class="skill-number">06</span>
+          </div>
+
+          <div class="skill">
+            Cloud Security
+            <span class="skill-number">07</span>
+          </div>
+
+          <div class="skill">
+            Vulnerability Assessment
+            <span class="skill-number">08</span>
+          </div>
+
+          <div class="skill">
+            OWASP
+            <span class="skill-number">09</span>
+          </div>
+
+          <div class="skill">
+            Security Testing
+            <span class="skill-number">10</span>
+          </div>
+
+          <div class="skill">
+            Technical Reporting
+            <span class="skill-number">11</span>
+          </div>
+
+          <div class="skill">
+            Security Research
+            <span class="skill-number">12</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         METHODOLOGY
+    ========================== -->
 
     <section id="metodologia">
 
@@ -898,12 +1130,15 @@
           </div>
 
           <h2 class="section-title">
-            Un proceso claro
-            y documentado.
+            Un proceso estructurado.
           </h2>
 
-        </div>
+          <p class="section-description">
+            Cada evaluación comienza definiendo claramente
+            el alcance y termina con documentación de los resultados.
+          </p>
 
+        </div>
 
         <div class="method-grid">
 
@@ -914,21 +1149,20 @@
             </div>
 
             <h3>
-              Definición del alcance
+              Alcance
             </h3>
 
             <p>
-              Determinamos qué sistemas pueden ser evaluados
-              y bajo qué condiciones.
+              Definición de sistemas, objetivos y límites
+              de la evaluación.
             </p>
 
           </div>
 
-
           <div class="method">
 
             <div class="method-number">
-              02 / TEST
+              02 / ASSESS
             </div>
 
             <h3>
@@ -936,30 +1170,28 @@
             </h3>
 
             <p>
-              Realizamos pruebas de seguridad dentro del
-              alcance previamente autorizado.
+              Análisis técnico dentro del alcance
+              previamente autorizado.
             </p>
 
           </div>
-
 
           <div class="method">
 
             <div class="method-number">
-              03 / ANALYSIS
+              03 / VALIDATE
             </div>
 
             <h3>
-              Análisis
+              Validación
             </h3>
 
             <p>
-              Validamos los hallazgos y evaluamos su impacto
-              sobre el sistema.
+              Revisión de los hallazgos para determinar
+              su impacto y relevancia.
             </p>
 
           </div>
-
 
           <div class="method">
 
@@ -972,8 +1204,8 @@
             </h3>
 
             <p>
-              Entregamos documentación con hallazgos,
-              impacto y recomendaciones de mitigación.
+              Documentación clara con evidencias,
+              impacto y recomendaciones.
             </p>
 
           </div>
@@ -985,61 +1217,83 @@
     </section>
 
 
-    <!-- SKILLS -->
+    <!-- =========================
+         LABORATORIES
+    ========================== -->
 
-    <section class="skills">
+    <section class="gray-section">
 
       <div class="container">
 
         <div class="section-header">
 
           <div class="section-label">
-            Áreas de conocimiento
+            Laboratorios
           </div>
 
           <h2 class="section-title">
-            Seguridad de aplicaciones.
+            Práctica y aprendizaje.
           </h2>
 
           <p class="section-description">
-            Añade aquí tus tecnologías, certificaciones y
-            conocimientos reales.
+            Espacio para mostrar laboratorios, CTFs y
+            proyectos realizados en entornos autorizados.
           </p>
 
         </div>
 
+        <div class="lab-grid">
 
-        <div class="skill-list">
+          <article class="lab">
 
-          <div class="skill">
-            Web Application Security
-            <span>01</span>
-          </div>
+            <div class="lab-type">
+              Web Security
+            </div>
 
-          <div class="skill">
-            API Security
-            <span>02</span>
-          </div>
+            <h3>
+              Web Application Labs
+            </h3>
 
-          <div class="skill">
-            OWASP
-            <span>03</span>
-          </div>
+            <p>
+              Laboratorios orientados al análisis de
+              aplicaciones web y vulnerabilidades comunes.
+            </p>
 
-          <div class="skill">
-            Vulnerability Assessment
-            <span>04</span>
-          </div>
+          </article>
 
-          <div class="skill">
-            Security Testing
-            <span>05</span>
-          </div>
+          <article class="lab">
 
-          <div class="skill">
-            Technical Reporting
-            <span>06</span>
-          </div>
+            <div class="lab-type">
+              Active Directory
+            </div>
+
+            <h3>
+              Active Directory Labs
+            </h3>
+
+            <p>
+              Entornos controlados para estudiar la seguridad
+              y administración de dominios Windows.
+            </p>
+
+          </article>
+
+          <article class="lab">
+
+            <div class="lab-type">
+              CTF
+            </div>
+
+            <h3>
+              Capture The Flag
+            </h3>
+
+            <p>
+              Retos de seguridad realizados en plataformas
+              diseñadas específicamente para practicar.
+            </p>
+
+          </article>
 
         </div>
 
@@ -1048,7 +1302,9 @@
     </section>
 
 
-    <!-- PORTFOLIO -->
+    <!-- =========================
+         PORTFOLIO
+    ========================== -->
 
     <section id="portfolio">
 
@@ -1061,17 +1317,15 @@
           </div>
 
           <h2 class="section-title">
-            Proyectos y laboratorios.
+            Proyectos y evaluaciones.
           </h2>
 
           <p class="section-description">
-            Sustituye estos ejemplos por proyectos,
-            laboratorios, CTFs o trabajos que puedas mostrar
-            públicamente.
+            Sustituye estos ejemplos por proyectos reales
+            que puedas mostrar públicamente.
           </p>
 
         </div>
-
 
         <div class="portfolio-grid">
 
@@ -1092,6 +1346,22 @@
 
           </article>
 
+          <article class="project">
+
+            <div class="project-type">
+              Active Directory
+            </div>
+
+            <h3>
+              Windows Domain Security Lab
+            </h3>
+
+            <p>
+              Laboratorio dedicado al estudio de seguridad
+              en un entorno de dominio controlado.
+            </p>
+
+          </article>
 
           <article class="project">
 
@@ -1104,8 +1374,25 @@
             </h3>
 
             <p>
-              Análisis de controles de autenticación,
-              autorización y exposición de información.
+              Revisión de autenticación, autorización y
+              exposición de información.
+            </p>
+
+          </article>
+
+          <article class="project">
+
+            <div class="project-type">
+              Research
+            </div>
+
+            <h3>
+              Security Research
+            </h3>
+
+            <p>
+              Investigación y documentación de conceptos
+              relacionados con seguridad informática.
             </p>
 
           </article>
@@ -1117,23 +1404,107 @@
     </section>
 
 
-    <!-- CTA -->
+    <!-- =========================
+         CERTIFICATIONS
+    ========================== -->
+
+    <section class="certifications">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Formación
+          </div>
+
+          <h2 class="section-title">
+            Certificaciones y formación.
+          </h2>
+
+          <p class="section-description">
+            Añade aquí solamente certificaciones y cursos
+            que hayas completado realmente.
+          </p>
+
+        </div>
+
+        <div class="cert-grid">
+
+          <article class="cert">
+
+            <div class="cert-status">
+              Certification
+            </div>
+
+            <h3>
+              Tu certificación
+            </h3>
+
+            <p>
+              Organización · Año
+            </p>
+
+          </article>
+
+          <article class="cert">
+
+            <div class="cert-status">
+              Training
+            </div>
+
+            <h3>
+              Tu formación
+            </h3>
+
+            <p>
+              Plataforma · Año
+            </p>
+
+          </article>
+
+          <article class="cert">
+
+            <div class="cert-status">
+              Education
+            </div>
+
+            <h3>
+              Tu formación académica
+            </h3>
+
+            <p>
+              Institución · Año
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
 
     <section class="cta">
 
       <div class="container">
 
-        <div class="cta-content">
+        <div class="cta-grid">
 
           <div>
 
             <h2>
-              ¿Quieres evaluar la seguridad de tu aplicación?
+              ¿Necesitas evaluar la seguridad de un sistema?
             </h2>
 
             <p>
-              Hablemos sobre el alcance, objetivos y
-              necesidades de tu proyecto.
+              Podemos hablar sobre el alcance, los objetivos
+              y las necesidades de tu proyecto.
             </p>
 
           </div>
@@ -1152,13 +1523,15 @@
     </section>
 
 
-    <!-- CONTACTO -->
+    <!-- =========================
+         CONTACT
+    ========================== -->
 
     <section id="contacto">
 
       <div class="container">
 
-        <div class="contact">
+        <div class="contact-grid">
 
           <div>
 
@@ -1171,12 +1544,12 @@
             </h2>
 
             <p class="contact-text">
-              Si necesitas una evaluación de seguridad
-              autorizada para tu aplicación web o API,
+              Si quieres hablar sobre un proyecto de seguridad,
+              una evaluación autorizada o una colaboración,
               puedes ponerte en contacto conmigo.
             </p>
 
-            <!-- CAMBIA ESTE EMAIL -->
+            <!-- CAMBIA EL EMAIL -->
 
             <a
               href="mailto:tuemail@ejemplo.com"
@@ -1210,20 +1583,20 @@
 
               <textarea
                 name="message"
-                placeholder="Cuéntame brevemente sobre el proyecto"
+                placeholder="Cuéntame sobre el proyecto"
                 required
               ></textarea>
 
               <button
                 type="submit"
-                class="button button-primary"
+                class="button button-primary form-button"
               >
                 Enviar mensaje
               </button>
 
             </form>
 
-            <p id="message"></p>
+            <p id="form-message"></p>
 
           </div>
 
@@ -1236,18 +1609,20 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =========================
+       FOOTER
+  ========================== -->
 
   <footer>
 
-    <div class="container footer-content">
+    <div class="container footer-grid">
 
       <span>
         © 2026 0null
       </span>
 
       <span>
-        Web Security & Penetration Testing
+        Cybersecurity & Penetration Testing
       </span>
 
     </div>
@@ -1261,14 +1636,14 @@
       document.getElementById("contactForm");
 
     const message =
-      document.getElementById("message");
+      document.getElementById("form-message");
 
     form.addEventListener("submit", function(event) {
 
       event.preventDefault();
 
       message.textContent =
-        "Gracias. El formulario ha sido enviado correctamente.";
+        "Gracias. Tu mensaje ha sido preparado correctamente.";
 
       form.reset();
 
