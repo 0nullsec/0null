@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="0null — Freelancer especializado en Pinterest Ads. Estrategia, gestión y optimización de campañas."
+  >
+
+  <title>0null | Pinterest Ads Freelancer</title>
+
+  <style>
+    :root {
+      --black: #111111;
+      --text: #222222;
+      --gray: #666666;
+      --light: #f7f7f5;
+      --white: #ffffff;
+      --pinterest: #e60023;
+      --border: #e8e8e8;
+      --max-width: 1180px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin-inline: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .navbar {
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span {
+      color: var(--pinterest);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    nav a {
+      color: #444;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--pinterest);
+    }
+
+    .nav-button {
+      padding: 11px 18px;
+
+      background: var(--black);
+      color: var(--white);
+
+      border-radius: 6px;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .nav-button:hover {
+      background: var(--pinterest);
+      transform: translateY(-1px);
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      padding: 110px 0 120px;
+      background: var(--light);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 22px;
+
+      color: var(--pinterest);
+
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+
+      background: var(--pinterest);
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+
+      color: var(--black);
+
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1.02;
+      letter-spacing: -0.045em;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--pinterest);
+    }
+
+    .hero-text {
+      max-width: 680px;
+
+      margin-top: 28px;
+
+      color: var(--gray);
+
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 50px;
+      padding: 0 22px;
+
+      border-radius: 6px;
+
+      font-size: 14px;
+      font-weight: 700;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .button-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .button-primary:hover {
+      background: var(--pinterest);
+      transform: translateY(-2px);
+    }
+
+    .button-secondary {
+      border: 1px solid #d5d5d5;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .button-secondary:hover {
+      border-color: var(--black);
+      transform: translateY(-2px);
+    }
+
+    /* =========================
+       GENERAL SECTIONS
+    ========================== */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin-bottom: 50px;
+    }
+
+    .section-label {
+      margin-bottom: 12px;
+
+      color: var(--pinterest);
+
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      color: var(--black);
+
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .section-description {
+      margin-top: 18px;
+
+      color: var(--gray);
+
+      font-size: 17px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+
+      align-items: start;
+    }
+
+    .about-name {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .about-name span {
+      color: var(--pinterest);
+    }
+
+    .about-text {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    /* =========================
+       SERVICES
+    ========================== */
+
+    .services {
+      background: var(--light);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      padding: 32px;
+
+      background: var(--white);
+
+      border: 1px solid var(--border);
+      border-radius: 8px;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    .service-number {
+      margin-bottom: 35px;
+
+      color: var(--pinterest);
+
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .service-card h3 {
+      margin-bottom: 12px;
+
+      color: var(--black);
+
+      font-size: 20px;
+    }
+
+    .service-card p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    /* =========================
+       PROCESS
+    ========================== */
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .process-item {
+      border-top: 2px solid var(--black);
+      padding-top: 20px;
+    }
+
+    .process-item span {
+      display: block;
+
+      margin-bottom: 20px;
+
+      color: var(--pinterest);
+
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .process-item h3 {
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .process-item p {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* =========================
+       RESULTS
+    ========================== */
+
+    .results {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .results .section-title {
+      color: var(--white);
+    }
+
+    .results .section-description {
+      color: #aaa;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .result {
+      padding: 35px;
+
+      border: 1px solid #292929;
+      border-radius: 8px;
+    }
+
+    .result-number {
+      color: var(--white);
+
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .result-number span {
+      color: var(--pinterest);
+    }
+
+    .result p {
+      margin-top: 8px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    /* =========================
+       PORTFOLIO
+    ========================== */
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .portfolio-card {
+      min-height: 300px;
+
+      padding: 30px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      background: #f1f1ef;
+
+      border-radius: 8px;
+
+      transition: transform 0.2s ease;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .portfolio-category {
+      margin-bottom: 8px;
+
+      color: var(--pinterest);
+
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .portfolio-card h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-card p {
+      max-width: 500px;
+      color: var(--gray);
+    }
+
+    /* =========================
+       CTA
+    ========================== */
+
+    .cta {
+      padding: 90px 0;
+      background: var(--pinterest);
+      color: var(--white);
+    }
+
+    .cta-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .cta h2 {
+      max-width: 700px;
+
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+    }
+
+    .cta p {
+      max-width: 600px;
+
+      margin-top: 15px;
+
+      color: rgba(255,255,255,0.82);
+    }
+
+    .cta .button {
+      flex-shrink: 0;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .cta .button:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* =========================
+       CONTACT
+    ========================== */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 80px;
+    }
+
+    .contact-text {
+      color: var(--gray);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .contact-email {
+      display: inline-block;
+
+      margin-top: 25px;
+
+      color: var(--black);
+
+      font-size: 18px;
+      font-weight: 700;
+
+      border-bottom: 2px solid var(--pinterest);
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+
+      padding: 16px 17px;
+
+      border: 1px solid #dcdcdc;
+      border-radius: 6px;
+
+      background: var(--white);
+
+      color: var(--black);
+
+      font: inherit;
+
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--black);
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+    }
+
+    .form-button {
+      border: 0;
+    }
+
+    #form-message {
+      min-height: 24px;
+
+      color: #16834d;
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      padding: 30px 0;
+
+      border-top: 1px solid var(--border);
+
+      color: #777;
+
+      font-size: 13px;
+    }
+
+    .footer-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    @media (max-width: 900px) {
+
+      nav {
+        display: none;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        width: min(100% - 30px, var(--max-width));
+      }
+
+      .hero {
+        padding: 80px 0;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+      }
+
+      .hero-text {
+        font-size: 16px;
+      }
+
+      .process-grid,
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container navbar">
+
+      <a href="#" class="logo">
+        0<span>null</span>
+      </a>
+
+      <nav>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contacto" class="nav-button">
+          Hablemos
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            Pinterest Ads Freelancer
+          </div>
+
+          <h1>
+            Convierte Pinterest
+            en una fuente de
+            <span>clientes.</span>
+          </h1>
+
+          <p class="hero-text">
+            Soy 0null, freelancer especializado en Pinterest Ads.
+            Ayudo a marcas y negocios a crear campañas estratégicas
+            para aumentar su visibilidad, tráfico y conversiones.
+          </p>
+
+          <div class="hero-buttons">
+
+            <a
+              href="#contacto"
+              class="button button-primary"
+            >
+              Trabajar conmigo
+            </a>
+
+            <a
+              href="#servicios"
+              class="button button-secondary"
+            >
+              Ver servicios
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SOBRE MI -->
+
+    <section id="sobre-mi">
+
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div>
+
+            <div class="section-label">
+              Sobre mí
+            </div>
+
+            <div class="about-name">
+              0<span>null</span>
+            </div>
+
+          </div>
+
+          <div>
+
+            <p class="about-text">
+              Trabajo como freelancer ayudando a negocios a
+              aprovechar Pinterest como canal de marketing.
+              Me encargo de la estrategia, configuración,
+              gestión y optimización de campañas publicitarias.
+              <br><br>
+              Mi enfoque es sencillo: entender tu negocio,
+              encontrar oportunidades y tomar decisiones
+              basadas en datos para mejorar los resultados.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICIOS -->
+
+    <section
+      id="servicios"
+      class="services"
+    >
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Servicios
+          </div>
+
+          <h2 class="section-title">
+            Publicidad en Pinterest
+            pensada para crecer.
+          </h2>
+
+          <p class="section-description">
+            Desde la estrategia inicial hasta la optimización
+            de tus campañas.
+          </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+          <article class="service-card">
+
+            <div class="service-number">
+              01
+            </div>
+
+            <h3>
+              Pinterest Ads
+            </h3>
+
+            <p>
+              Creación, configuración y gestión de campañas
+              publicitarias adaptadas a tus objetivos.
+            </p>
+
+          </article>
+
+
+          <article class="service-card">
+
+            <div class="service-number">
+              02
+            </div>
+
+            <h3>
+              Estrategia
+            </h3>
+
+            <p>
+              Planificación de campañas, públicos, creatividades
+              y objetivos para construir una estrategia coherente.
+            </p>
+
+          </article>
+
+
+          <article class="service-card">
+
+            <div class="service-number">
+              03
+            </div>
+
+            <h3>
+              Optimización
+            </h3>
+
+            <p>
+              Análisis del rendimiento y optimización continua
+              para identificar qué funciona y qué debe mejorar.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROCESO -->
+
+    <section id="proceso">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Proceso
+          </div>
+
+          <h2 class="section-title">
+            Una forma de trabajar
+            clara y directa.
+          </h2>
+
+        </div>
+
+
+        <div class="process-grid">
+
+          <div class="process-item">
+
+            <span>01 / ANÁLISIS</span>
+
+            <h3>
+              Entender tu negocio
+            </h3>
+
+            <p>
+              Analizamos tu situación, objetivos, mercado
+              y público.
+            </p>
+
+          </div>
+
+
+          <div class="process-item">
+
+            <span>02 / ESTRATEGIA</span>
+
+            <h3>
+              Definir el plan
+            </h3>
+
+            <p>
+              Diseñamos la estructura de campañas y la
+              estrategia publicitaria.
+            </p>
+
+          </div>
+
+
+          <div class="process-item">
+
+            <span>03 / EJECUCIÓN</span>
+
+            <h3>
+              Lanzar campañas
+            </h3>
+
+            <p>
+              Configuramos y ponemos en marcha las campañas.
+            </p>
+
+          </div>
+
+
+          <div class="process-item">
+
+            <span>04 / MEJORA</span>
+
+            <h3>
+              Optimizar
+            </h3>
+
+            <p>
+              Revisamos los datos y realizamos mejoras
+              de forma continua.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESULTADOS -->
+
+    <section class="results">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Enfoque
+          </div>
+
+          <h2 class="section-title">
+            Decisiones basadas
+            en datos.
+          </h2>
+
+          <p class="section-description">
+            Cada campaña se analiza para entender dónde
+            está la oportunidad de mejorar.
+          </p>
+
+        </div>
+
+
+        <div class="results-grid">
+
+          <div class="result">
+
+            <div class="result-number">
+              ROI<span>.</span>
+            </div>
+
+            <p>
+              Buscamos que la inversión publicitaria
+              tenga un objetivo claro.
+            </p>
+
+          </div>
+
+
+          <div class="result">
+
+            <div class="result-number">
+              DATA<span>.</span>
+            </div>
+
+            <p>
+              Analizamos métricas para tomar mejores
+              decisiones.
+            </p>
+
+          </div>
+
+
+          <div class="result">
+
+            <div class="result-number">
+              GROW<span>.</span>
+            </div>
+
+            <p>
+              Optimizamos las campañas para buscar
+              crecimiento sostenible.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+
+    <section id="portfolio">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <div class="section-label">
+            Portfolio
+          </div>
+
+          <h2 class="section-title">
+            Algunos proyectos.
+          </h2>
+
+          <p class="section-description">
+            Sustituye estos ejemplos por tus trabajos reales,
+            resultados y casos de éxito.
+          </p>
+
+        </div>
+
+
+        <div class="portfolio-grid">
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-category">
+              Ecommerce
+            </div>
+
+            <h3>
+              Campaña para tienda online
+            </h3>
+
+            <p>
+              Estrategia de Pinterest Ads orientada a generar
+              tráfico hacia productos.
+            </p>
+
+          </article>
+
+
+          <article class="portfolio-card">
+
+            <div class="portfolio-category">
+              Branding
+            </div>
+
+            <h3>
+              Campaña de reconocimiento
+            </h3>
+
+            <p>
+              Publicidad enfocada en aumentar la visibilidad
+              de una marca ante nuevas audiencias.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <div class="cta-content">
+
+          <div>
+
+            <h2>
+              ¿Hablamos de tu proyecto?
+            </h2>
+
+            <p>
+              Cuéntame qué quieres conseguir y veremos
+              cómo Pinterest Ads puede ayudarte.
+            </p>
+
+          </div>
+
+          <a
+            href="#contacto"
+            class="button"
+          >
+            Contactar
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section id="contacto">
+
+      <div class="container">
+
+        <div class="contact-grid">
+
+          <div>
+
+            <div class="section-label">
+              Contacto
+            </div>
+
+            <h2 class="section-title">
+              Empecemos a trabajar.
+            </h2>
+
+            <p class="contact-text">
+              Si tienes un proyecto, una tienda online o una
+              marca que quieres hacer crecer, escríbeme.
+            </p>
+
+            <a
+              href="mailto:tuemail@ejemplo.com"
+              class="contact-email"
+            >
+              tuemail@ejemplo.com
+            </a>
+
+          </div>
+
+
+          <div>
+
+            <form id="contactForm">
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Nombre"
+                autocomplete="name"
+                required
+              >
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+              >
+
+              <textarea
+                name="message"
+                placeholder="Cuéntame sobre tu proyecto"
+                required
+              ></textarea>
+
+              <button
+                type="submit"
+                class="button button-primary form-button"
+              >
+                Enviar mensaje
+              </button>
+
+            </form>
+
+            <p id="form-message"></p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-content">
+
+      <div>
+        © 2026 0null
+      </div>
+
+      <div>
+        Pinterest Ads Freelancer
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    const form =
+      document.getElementById("contactForm");
+
+    const message =
+      document.getElementById("form-message");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      message.textContent =
+        "Gracias. Tu mensaje ha sido preparado correctamente.";
+
+      form.reset();
+
+    });
+
+  </script>
+
+</body>
+</html>
