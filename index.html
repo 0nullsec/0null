@@ -6,21 +6,22 @@
 
   <meta
     name="description"
-    content="0null — Freelancer especializado en Pinterest Ads. Estrategia, gestión y optimización de campañas."
+    content="0null — Web Security & Penetration Testing"
   >
 
-  <title>0null | Pinterest Ads Freelancer</title>
+  <title>0null | Web Security & Penetration Testing</title>
 
   <style>
     :root {
       --black: #111111;
+      --dark: #181818;
       --text: #222222;
-      --gray: #666666;
-      --light: #f7f7f5;
+      --muted: #666666;
+      --light: #f5f5f3;
       --white: #ffffff;
-      --pinterest: #e60023;
-      --border: #e8e8e8;
-      --max-width: 1180px;
+      --border: #e5e5e5;
+      --accent: #b42318;
+      --max: 1150px;
     }
 
     * {
@@ -53,14 +54,9 @@
       text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
     .container {
-      width: min(100% - 40px, var(--max-width));
-      margin-inline: auto;
+      width: min(100% - 40px, var(--max));
+      margin: 0 auto;
     }
 
     /* =========================
@@ -72,13 +68,14 @@
       top: 0;
       z-index: 100;
 
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
+
+      backdrop-filter: blur(10px);
     }
 
-    .navbar {
-      min-height: 76px;
+    .nav {
+      min-height: 74px;
 
       display: flex;
       align-items: center;
@@ -86,51 +83,45 @@
     }
 
     .logo {
-      font-size: 24px;
+      font-size: 23px;
       font-weight: 800;
       letter-spacing: -1px;
     }
 
     .logo span {
-      color: var(--pinterest);
+      color: var(--accent);
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 30px;
     }
 
     nav a {
-      color: #444;
+      color: #555;
       font-size: 14px;
       font-weight: 500;
-      transition: color 0.2s ease;
     }
 
     nav a:hover {
-      color: var(--pinterest);
+      color: var(--accent);
     }
 
-    .nav-button {
-      padding: 11px 18px;
+    .contact-button {
+      padding: 10px 17px;
 
+      color: white;
       background: var(--black);
-      color: var(--white);
 
-      border-radius: 6px;
+      border-radius: 5px;
 
-      font-size: 14px;
       font-weight: 600;
-
-      transition:
-        background 0.2s ease,
-        transform 0.2s ease;
     }
 
-    .nav-button:hover {
-      background: var(--pinterest);
-      transform: translateY(-1px);
+    .contact-button:hover {
+      background: var(--accent);
+      color: white;
     }
 
     /* =========================
@@ -138,7 +129,7 @@
     ========================== */
 
     .hero {
-      padding: 110px 0 120px;
+      padding: 125px 0 120px;
       background: var(--light);
     }
 
@@ -146,62 +137,46 @@
       max-width: 850px;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .label {
+      margin-bottom: 20px;
 
-      margin-bottom: 22px;
+      color: var(--accent);
 
-      color: var(--pinterest);
-
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 7px;
-      height: 7px;
-
-      background: var(--pinterest);
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      max-width: 900px;
-
+    h1 {
       color: var(--black);
 
-      font-size: clamp(44px, 7vw, 78px);
-      line-height: 1.02;
-      letter-spacing: -0.045em;
-      font-weight: 800;
+      font-size: clamp(45px, 7vw, 76px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
     }
 
-    .hero h1 span {
-      color: var(--pinterest);
+    h1 span {
+      color: var(--accent);
     }
 
     .hero-text {
-      max-width: 680px;
+      max-width: 700px;
 
-      margin-top: 28px;
+      margin-top: 25px;
 
-      color: var(--gray);
+      color: var(--muted);
 
       font-size: 19px;
       line-height: 1.75;
     }
 
-    .hero-buttons {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
 
-      margin-top: 34px;
+      margin-top: 32px;
     }
 
     .button {
@@ -209,18 +184,15 @@
       align-items: center;
       justify-content: center;
 
-      min-height: 50px;
-      padding: 0 22px;
+      min-height: 49px;
+      padding: 0 21px;
 
-      border-radius: 6px;
+      border-radius: 5px;
 
       font-size: 14px;
       font-weight: 700;
 
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
+      transition: .2s ease;
     }
 
     .button-primary {
@@ -229,14 +201,13 @@
     }
 
     .button-primary:hover {
-      background: var(--pinterest);
+      background: var(--accent);
       transform: translateY(-2px);
     }
 
     .button-secondary {
-      border: 1px solid #d5d5d5;
+      border: 1px solid #d3d3d3;
       background: var(--white);
-      color: var(--black);
     }
 
     .button-secondary:hover {
@@ -245,71 +216,74 @@
     }
 
     /* =========================
-       GENERAL SECTIONS
+       SECTIONS
     ========================== */
 
     section {
       padding: 100px 0;
     }
 
-    .section-header {
-      max-width: 700px;
-      margin-bottom: 50px;
-    }
-
     .section-label {
       margin-bottom: 12px;
 
-      color: var(--pinterest);
+      color: var(--accent);
 
       font-size: 12px;
       font-weight: 800;
-      letter-spacing: 0.1em;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
 
     .section-title {
+      max-width: 700px;
+
       color: var(--black);
 
       font-size: clamp(32px, 5vw, 48px);
       line-height: 1.1;
-      letter-spacing: -0.035em;
+      letter-spacing: -.04em;
     }
 
     .section-description {
+      max-width: 680px;
+
       margin-top: 18px;
 
-      color: var(--gray);
+      color: var(--muted);
 
       font-size: 17px;
+    }
+
+    .section-header {
+      margin-bottom: 50px;
     }
 
     /* =========================
        ABOUT
     ========================== */
 
-    .about-grid {
+    .about {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
-      gap: 80px;
+      grid-template-columns: .7fr 1.3fr;
 
-      align-items: start;
+      gap: 80px;
     }
 
     .about-name {
       font-size: 42px;
       font-weight: 800;
-      letter-spacing: -0.04em;
+      letter-spacing: -.04em;
     }
 
     .about-name span {
-      color: var(--pinterest);
+      color: var(--accent);
     }
 
     .about-text {
-      color: var(--gray);
+      color: var(--muted);
+
       font-size: 17px;
-      line-height: 1.8;
+      line-height: 1.85;
     }
 
     /* =========================
@@ -323,39 +297,29 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+
       gap: 20px;
     }
 
-    .service-card {
+    .service {
       padding: 32px;
 
       background: var(--white);
 
       border: 1px solid var(--border);
-      border-radius: 8px;
-
-      transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-4px);
-
-      box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.06);
+      border-radius: 6px;
     }
 
     .service-number {
       margin-bottom: 35px;
 
-      color: var(--pinterest);
+      color: var(--accent);
 
-      font-size: 13px;
-      font-weight: 700;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    .service-card h3 {
+    .service h3 {
       margin-bottom: 12px;
 
       color: var(--black);
@@ -363,93 +327,85 @@
       font-size: 20px;
     }
 
-    .service-card p {
-      color: var(--gray);
+    .service p {
+      color: var(--muted);
       font-size: 15px;
     }
 
     /* =========================
-       PROCESS
+       METHODOLOGY
     ========================== */
 
-    .process-grid {
+    .method-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+
       gap: 25px;
     }
 
-    .process-item {
-      border-top: 2px solid var(--black);
+    .method {
       padding-top: 20px;
+
+      border-top: 2px solid var(--black);
     }
 
-    .process-item span {
-      display: block;
+    .method-number {
+      margin-bottom: 18px;
 
-      margin-bottom: 20px;
+      color: var(--accent);
 
-      color: var(--pinterest);
-
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
     }
 
-    .process-item h3 {
+    .method h3 {
       margin-bottom: 10px;
+
       font-size: 18px;
     }
 
-    .process-item p {
-      color: var(--gray);
+    .method p {
+      color: var(--muted);
       font-size: 14px;
     }
 
     /* =========================
-       RESULTS
+       SKILLS
     ========================== */
 
-    .results {
+    .skills {
       background: var(--black);
       color: var(--white);
     }
 
-    .results .section-title {
+    .skills .section-title {
       color: var(--white);
     }
 
-    .results .section-description {
-      color: #aaa;
-    }
-
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .result {
-      padding: 35px;
-
-      border: 1px solid #292929;
-      border-radius: 8px;
-    }
-
-    .result-number {
-      color: var(--white);
-
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-    }
-
-    .result-number span {
-      color: var(--pinterest);
-    }
-
-    .result p {
-      margin-top: 8px;
+    .skills .section-description {
       color: #999;
-      font-size: 14px;
+    }
+
+    .skill-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 22px;
+
+      border: 1px solid #303030;
+
+      color: #ddd;
+
+      background: #151515;
+    }
+
+    .skill span {
+      float: right;
+      color: var(--accent);
     }
 
     /* =========================
@@ -459,13 +415,14 @@
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
+
+      gap: 20px;
     }
 
-    .portfolio-card {
-      min-height: 300px;
+    .project {
+      padding: 32px;
 
-      padding: 30px;
+      min-height: 260px;
 
       display: flex;
       flex-direction: column;
@@ -473,33 +430,28 @@
 
       background: #f1f1ef;
 
-      border-radius: 8px;
-
-      transition: transform 0.2s ease;
+      border: 1px solid var(--border);
+      border-radius: 6px;
     }
 
-    .portfolio-card:hover {
-      transform: translateY(-4px);
-    }
+    .project-type {
+      margin-bottom: 10px;
 
-    .portfolio-category {
-      margin-bottom: 8px;
-
-      color: var(--pinterest);
+      color: var(--accent);
 
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
     }
 
-    .portfolio-card h3 {
-      font-size: 25px;
-      margin-bottom: 8px;
+    .project h3 {
+      margin-bottom: 10px;
+
+      font-size: 24px;
     }
 
-    .portfolio-card p {
-      max-width: 500px;
-      color: var(--gray);
+    .project p {
+      color: var(--muted);
     }
 
     /* =========================
@@ -507,8 +459,7 @@
     ========================== */
 
     .cta {
-      padding: 90px 0;
-      background: var(--pinterest);
+      background: var(--accent);
       color: var(--white);
     }
 
@@ -516,6 +467,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 40px;
     }
 
@@ -524,19 +476,20 @@
 
       font-size: clamp(32px, 5vw, 52px);
       line-height: 1.1;
-      letter-spacing: -0.04em;
+      letter-spacing: -.04em;
     }
 
     .cta p {
-      max-width: 600px;
+      max-width: 650px;
 
       margin-top: 15px;
 
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,.82);
     }
 
     .cta .button {
       flex-shrink: 0;
+
       background: var(--white);
       color: var(--black);
     }
@@ -550,29 +503,28 @@
        CONTACT
     ========================== */
 
-    .contact-grid {
+    .contact {
       display: grid;
-      grid-template-columns: 0.8fr 1.2fr;
+      grid-template-columns: .8fr 1.2fr;
+
       gap: 80px;
     }
 
     .contact-text {
-      color: var(--gray);
+      color: var(--muted);
+
       font-size: 17px;
       line-height: 1.8;
     }
 
-    .contact-email {
+    .email {
       display: inline-block;
 
       margin-top: 25px;
 
-      color: var(--black);
+      border-bottom: 2px solid var(--accent);
 
-      font-size: 18px;
       font-weight: 700;
-
-      border-bottom: 2px solid var(--pinterest);
     }
 
     form {
@@ -584,14 +536,12 @@
     textarea {
       width: 100%;
 
-      padding: 16px 17px;
+      padding: 16px;
 
-      border: 1px solid #dcdcdc;
-      border-radius: 6px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
 
-      background: var(--white);
-
-      color: var(--black);
+      background: white;
 
       font: inherit;
 
@@ -608,12 +558,15 @@
       resize: vertical;
     }
 
-    .form-button {
+    button {
       border: 0;
+      cursor: pointer;
+      font-family: inherit;
     }
 
-    #form-message {
-      min-height: 24px;
+    #message {
+      min-height: 25px;
+      margin-top: 15px;
 
       color: #16834d;
 
@@ -636,13 +589,12 @@
 
     .footer-content {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 20px;
     }
 
     /* =========================
-       MOBILE
+       RESPONSIVE
     ========================== */
 
     @media (max-width: 900px) {
@@ -651,9 +603,10 @@
         display: none;
       }
 
-      .about-grid,
-      .contact-grid {
+      .about,
+      .contact {
         grid-template-columns: 1fr;
+
         gap: 40px;
       }
 
@@ -661,11 +614,11 @@
         grid-template-columns: 1fr;
       }
 
-      .process-grid {
+      .method-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .results-grid {
+      .skill-list {
         grid-template-columns: 1fr;
       }
 
@@ -678,33 +631,28 @@
     @media (max-width: 600px) {
 
       .container {
-        width: min(100% - 30px, var(--max-width));
-      }
-
-      .hero {
-        padding: 80px 0;
+        width: min(100% - 30px, var(--max));
       }
 
       section {
         padding: 75px 0;
       }
 
-      .hero h1 {
+      .hero {
+        padding: 85px 0;
+      }
+
+      h1 {
         font-size: 48px;
       }
 
-      .hero-text {
-        font-size: 16px;
-      }
-
-      .process-grid,
+      .method-grid,
       .portfolio-grid {
         grid-template-columns: 1fr;
       }
 
       .footer-content {
         flex-direction: column;
-        align-items: flex-start;
       }
     }
   </style>
@@ -715,23 +663,39 @@
   <!-- HEADER -->
 
   <header>
-    <div class="container navbar">
+
+    <div class="container nav">
 
       <a href="#" class="logo">
         0<span>null</span>
       </a>
 
       <nav>
-        <a href="#sobre-mi">Sobre mí</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Proceso</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#contacto" class="nav-button">
-          Hablemos
+
+        <a href="#sobre-mi">
+          Sobre mí
         </a>
+
+        <a href="#servicios">
+          Servicios
+        </a>
+
+        <a href="#metodologia">
+          Metodología
+        </a>
+
+        <a href="#portfolio">
+          Portfolio
+        </a>
+
+        <a href="#contacto" class="contact-button">
+          Contacto
+        </a>
+
       </nav>
 
     </div>
+
   </header>
 
 
@@ -745,29 +709,30 @@
 
         <div class="hero-content">
 
-          <div class="eyebrow">
-            Pinterest Ads Freelancer
+          <div class="label">
+            Web Security & Penetration Testing
           </div>
 
           <h1>
-            Convierte Pinterest
-            en una fuente de
-            <span>clientes.</span>
+            Seguridad web
+            con un enfoque
+            <span>profesional.</span>
           </h1>
 
           <p class="hero-text">
-            Soy 0null, freelancer especializado en Pinterest Ads.
-            Ayudo a marcas y negocios a crear campañas estratégicas
-            para aumentar su visibilidad, tráfico y conversiones.
+            Soy 0null, especialista en seguridad web y pentesting.
+            Analizo aplicaciones web y APIs para identificar
+            vulnerabilidades y proporcionar recomendaciones
+            claras para mejorar su seguridad.
           </p>
 
-          <div class="hero-buttons">
+          <div class="buttons">
 
             <a
               href="#contacto"
               class="button button-primary"
             >
-              Trabajar conmigo
+              Solicitar evaluación
             </a>
 
             <a
@@ -792,7 +757,7 @@
 
       <div class="container">
 
-        <div class="about-grid">
+        <div class="about">
 
           <div>
 
@@ -809,14 +774,16 @@
           <div>
 
             <p class="about-text">
-              Trabajo como freelancer ayudando a negocios a
-              aprovechar Pinterest como canal de marketing.
-              Me encargo de la estrategia, configuración,
-              gestión y optimización de campañas publicitarias.
+              Me dedico al análisis de seguridad de aplicaciones
+              web y servicios expuestos en Internet.
               <br><br>
-              Mi enfoque es sencillo: entender tu negocio,
-              encontrar oportunidades y tomar decisiones
-              basadas en datos para mejorar los resultados.
+              Mi trabajo consiste en identificar posibles
+              vulnerabilidades, evaluar su impacto y documentar
+              los hallazgos de forma clara para que puedan
+              ser corregidos.
+              <br><br>
+              Todas las pruebas se realizan únicamente con
+              autorización del propietario del sistema.
             </p>
 
           </div>
@@ -844,13 +811,13 @@
           </div>
 
           <h2 class="section-title">
-            Publicidad en Pinterest
-            pensada para crecer.
+            Evaluación de seguridad
+            para aplicaciones modernas.
           </h2>
 
           <p class="section-description">
-            Desde la estrategia inicial hasta la optimización
-            de tus campañas.
+            Servicios de análisis orientados a identificar,
+            priorizar y corregir riesgos de seguridad.
           </p>
 
         </div>
@@ -858,55 +825,55 @@
 
         <div class="service-grid">
 
-          <article class="service-card">
+          <article class="service">
 
             <div class="service-number">
               01
             </div>
 
             <h3>
-              Pinterest Ads
+              Web Pentesting
             </h3>
 
             <p>
-              Creación, configuración y gestión de campañas
-              publicitarias adaptadas a tus objetivos.
+              Evaluación de aplicaciones web para identificar
+              vulnerabilidades y problemas de configuración.
             </p>
 
           </article>
 
 
-          <article class="service-card">
+          <article class="service">
 
             <div class="service-number">
               02
             </div>
 
             <h3>
-              Estrategia
+              API Security
             </h3>
 
             <p>
-              Planificación de campañas, públicos, creatividades
-              y objetivos para construir una estrategia coherente.
+              Revisión de APIs para detectar problemas de
+              autenticación, autorización y exposición de datos.
             </p>
 
           </article>
 
 
-          <article class="service-card">
+          <article class="service">
 
             <div class="service-number">
               03
             </div>
 
             <h3>
-              Optimización
+              Security Assessment
             </h3>
 
             <p>
-              Análisis del rendimiento y optimización continua
-              para identificar qué funciona y qué debe mejorar.
+              Evaluación general de la superficie de ataque
+              y recomendaciones para reducir riesgos.
             </p>
 
           </article>
@@ -918,86 +885,95 @@
     </section>
 
 
-    <!-- PROCESO -->
+    <!-- METODOLOGIA -->
 
-    <section id="proceso">
+    <section id="metodologia">
 
       <div class="container">
 
         <div class="section-header">
 
           <div class="section-label">
-            Proceso
+            Metodología
           </div>
 
           <h2 class="section-title">
-            Una forma de trabajar
-            clara y directa.
+            Un proceso claro
+            y documentado.
           </h2>
 
         </div>
 
 
-        <div class="process-grid">
+        <div class="method-grid">
 
-          <div class="process-item">
+          <div class="method">
 
-            <span>01 / ANÁLISIS</span>
+            <div class="method-number">
+              01 / SCOPE
+            </div>
 
             <h3>
-              Entender tu negocio
+              Definición del alcance
             </h3>
 
             <p>
-              Analizamos tu situación, objetivos, mercado
-              y público.
+              Determinamos qué sistemas pueden ser evaluados
+              y bajo qué condiciones.
             </p>
 
           </div>
 
 
-          <div class="process-item">
+          <div class="method">
 
-            <span>02 / ESTRATEGIA</span>
+            <div class="method-number">
+              02 / TEST
+            </div>
 
             <h3>
-              Definir el plan
+              Evaluación
             </h3>
 
             <p>
-              Diseñamos la estructura de campañas y la
-              estrategia publicitaria.
+              Realizamos pruebas de seguridad dentro del
+              alcance previamente autorizado.
             </p>
 
           </div>
 
 
-          <div class="process-item">
+          <div class="method">
 
-            <span>03 / EJECUCIÓN</span>
+            <div class="method-number">
+              03 / ANALYSIS
+            </div>
 
             <h3>
-              Lanzar campañas
+              Análisis
             </h3>
 
             <p>
-              Configuramos y ponemos en marcha las campañas.
+              Validamos los hallazgos y evaluamos su impacto
+              sobre el sistema.
             </p>
 
           </div>
 
 
-          <div class="process-item">
+          <div class="method">
 
-            <span>04 / MEJORA</span>
+            <div class="method-number">
+              04 / REPORT
+            </div>
 
             <h3>
-              Optimizar
+              Informe
             </h3>
 
             <p>
-              Revisamos los datos y realizamos mejoras
-              de forma continua.
+              Entregamos documentación con hallazgos,
+              impacto y recomendaciones de mitigación.
             </p>
 
           </div>
@@ -1009,72 +985,60 @@
     </section>
 
 
-    <!-- RESULTADOS -->
+    <!-- SKILLS -->
 
-    <section class="results">
+    <section class="skills">
 
       <div class="container">
 
         <div class="section-header">
 
           <div class="section-label">
-            Enfoque
+            Áreas de conocimiento
           </div>
 
           <h2 class="section-title">
-            Decisiones basadas
-            en datos.
+            Seguridad de aplicaciones.
           </h2>
 
           <p class="section-description">
-            Cada campaña se analiza para entender dónde
-            está la oportunidad de mejorar.
+            Añade aquí tus tecnologías, certificaciones y
+            conocimientos reales.
           </p>
 
         </div>
 
 
-        <div class="results-grid">
+        <div class="skill-list">
 
-          <div class="result">
-
-            <div class="result-number">
-              ROI<span>.</span>
-            </div>
-
-            <p>
-              Buscamos que la inversión publicitaria
-              tenga un objetivo claro.
-            </p>
-
+          <div class="skill">
+            Web Application Security
+            <span>01</span>
           </div>
 
-
-          <div class="result">
-
-            <div class="result-number">
-              DATA<span>.</span>
-            </div>
-
-            <p>
-              Analizamos métricas para tomar mejores
-              decisiones.
-            </p>
-
+          <div class="skill">
+            API Security
+            <span>02</span>
           </div>
 
+          <div class="skill">
+            OWASP
+            <span>03</span>
+          </div>
 
-          <div class="result">
+          <div class="skill">
+            Vulnerability Assessment
+            <span>04</span>
+          </div>
 
-            <div class="result-number">
-              GROW<span>.</span>
-            </div>
+          <div class="skill">
+            Security Testing
+            <span>05</span>
+          </div>
 
-            <p>
-              Optimizamos las campañas para buscar
-              crecimiento sostenible.
-            </p>
-
+          <div class="skill">
+            Technical Reporting
+            <span>06</span>
           </div>
 
         </div>
@@ -1097,12 +1061,13 @@
           </div>
 
           <h2 class="section-title">
-            Algunos proyectos.
+            Proyectos y laboratorios.
           </h2>
 
           <p class="section-description">
-            Sustituye estos ejemplos por tus trabajos reales,
-            resultados y casos de éxito.
+            Sustituye estos ejemplos por proyectos,
+            laboratorios, CTFs o trabajos que puedas mostrar
+            públicamente.
           </p>
 
         </div>
@@ -1110,37 +1075,37 @@
 
         <div class="portfolio-grid">
 
-          <article class="portfolio-card">
+          <article class="project">
 
-            <div class="portfolio-category">
-              Ecommerce
+            <div class="project-type">
+              Web Security
             </div>
 
             <h3>
-              Campaña para tienda online
+              Web Application Assessment
             </h3>
 
             <p>
-              Estrategia de Pinterest Ads orientada a generar
-              tráfico hacia productos.
+              Evaluación de seguridad de una aplicación web
+              dentro de un entorno autorizado.
             </p>
 
           </article>
 
 
-          <article class="portfolio-card">
+          <article class="project">
 
-            <div class="portfolio-category">
-              Branding
+            <div class="project-type">
+              API Security
             </div>
 
             <h3>
-              Campaña de reconocimiento
+              API Security Review
             </h3>
 
             <p>
-              Publicidad enfocada en aumentar la visibilidad
-              de una marca ante nuevas audiencias.
+              Análisis de controles de autenticación,
+              autorización y exposición de información.
             </p>
 
           </article>
@@ -1163,12 +1128,12 @@
           <div>
 
             <h2>
-              ¿Hablamos de tu proyecto?
+              ¿Quieres evaluar la seguridad de tu aplicación?
             </h2>
 
             <p>
-              Cuéntame qué quieres conseguir y veremos
-              cómo Pinterest Ads puede ayudarte.
+              Hablemos sobre el alcance, objetivos y
+              necesidades de tu proyecto.
             </p>
 
           </div>
@@ -1193,7 +1158,7 @@
 
       <div class="container">
 
-        <div class="contact-grid">
+        <div class="contact">
 
           <div>
 
@@ -1202,17 +1167,20 @@
             </div>
 
             <h2 class="section-title">
-              Empecemos a trabajar.
+              Hablemos.
             </h2>
 
             <p class="contact-text">
-              Si tienes un proyecto, una tienda online o una
-              marca que quieres hacer crecer, escríbeme.
+              Si necesitas una evaluación de seguridad
+              autorizada para tu aplicación web o API,
+              puedes ponerte en contacto conmigo.
             </p>
+
+            <!-- CAMBIA ESTE EMAIL -->
 
             <a
               href="mailto:tuemail@ejemplo.com"
-              class="contact-email"
+              class="email"
             >
               tuemail@ejemplo.com
             </a>
@@ -1242,20 +1210,20 @@
 
               <textarea
                 name="message"
-                placeholder="Cuéntame sobre tu proyecto"
+                placeholder="Cuéntame brevemente sobre el proyecto"
                 required
               ></textarea>
 
               <button
                 type="submit"
-                class="button button-primary form-button"
+                class="button button-primary"
               >
                 Enviar mensaje
               </button>
 
             </form>
 
-            <p id="form-message"></p>
+            <p id="message"></p>
 
           </div>
 
@@ -1274,13 +1242,13 @@
 
     <div class="container footer-content">
 
-      <div>
+      <span>
         © 2026 0null
-      </div>
+      </span>
 
-      <div>
-        Pinterest Ads Freelancer
-      </div>
+      <span>
+        Web Security & Penetration Testing
+      </span>
 
     </div>
 
@@ -1293,14 +1261,14 @@
       document.getElementById("contactForm");
 
     const message =
-      document.getElementById("form-message");
+      document.getElementById("message");
 
     form.addEventListener("submit", function(event) {
 
       event.preventDefault();
 
       message.textContent =
-        "Gracias. Tu mensaje ha sido preparado correctamente.";
+        "Gracias. El formulario ha sido enviado correctamente.";
 
       form.reset();
 
